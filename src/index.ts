@@ -1,4 +1,4 @@
-import express, { Express, NextFunction, Request, Response } from "express";
+import express, { Express, Request, Response } from "express";
 const app: Express = express();
 import { MAX_FILE_UPLOADS, nameIt, UPLOAD_DIR } from "./config";
 
@@ -8,15 +8,16 @@ import multer from "multer";
 // serving uploaded files
 app.use("/file", express.static(UPLOAD_DIR));
 
-app.get("/api/file/", (req: Request, res: Response) => {
+app.get("/api/file/", (_: Request, res: Response) => {
 	res.send("Post Your Files here");
 });
 
 const storage = multer.diskStorage({
-	destination: function(req: Request, file: any, cb: any) {
+	destination: function(_: Request, file: any, cb: any) {
 		cb(null, UPLOAD_DIR);
 	},
-	filename: function(req: Request, file: any, cb: any) {
+
+	filename: function(_: Request, file: any, cb: any) {
 		cb(null, nameIt() + "-" + file.originalname);
 	},
 });
