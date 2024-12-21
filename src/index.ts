@@ -1,6 +1,6 @@
 import express, { Express, NextFunction, Request, Response } from "express";
 const app: Express = express();
-import { MAX_FILE_UPLOADS, nameIt } from "./config";
+import { MAX_FILE_UPLOADS, nameIt, UPLOAD_DIR } from "./config";
 
 import multer from "multer";
 // const upload = multer({ dest: "uploads/" });
@@ -11,7 +11,7 @@ app.get("/api/file/", (req: Request, res: Response) => {
 
 const storage = multer.diskStorage({
 	destination: function(req: Request, file: any, cb: any) {
-		cb(null, "uploads/");
+		cb(null, UPLOAD_DIR);
 	},
 	filename: function(req: Request, file: any, cb: any) {
 		cb(null, nameIt() + "-" + file.originalname);
