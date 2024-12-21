@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export let MAX_FILE_UPLOADS = process.env.MAX_FILE_UPLOADS || 3; // maximum number of files to upload at once
+export let MAX_FILE_UPLOADS = Number(process.env.MAX_FILE_UPLOADS) || 3; // maximum number of files to upload at once
 
 export let MAX_RANDOM_CHARS = Number(process.env.MAX_RANDOM_CHARS) || 64; // random chars for each file name (A-z 0-9)
 
@@ -28,3 +28,5 @@ export function nameIt() {
 	}
 	return name;
 }
+
+export let UPLOAD_DIR = "./uploads/";
