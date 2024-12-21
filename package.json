@@ -1,0 +1,17 @@
+{
+  "name": "phantom",
+  "version": "1.0.0",
+  "description": "simple web app to send file to other with just knowing their e-mail",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "m.mohamadShabane@gmail.com",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
