@@ -5,6 +5,9 @@ import { MAX_FILE_UPLOADS, nameIt, UPLOAD_DIR } from "./config";
 import multer from "multer";
 // const upload = multer({ dest: "uploads/" });
 
+// serving uploaded files
+app.use("/file", express.static(UPLOAD_DIR));
+
 app.get("/api/file/", (req: Request, res: Response) => {
 	res.send("Post Your Files here");
 });
