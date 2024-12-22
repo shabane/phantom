@@ -30,3 +30,10 @@ export function nameIt() {
 }
 
 export let UPLOAD_DIR = "./uploads/";
+
+export let EMAIL_HOST: string = process.env.EMAIL_HOST;
+export let EMAIL_PORT: number = process.env.EMAIL_PORT;
+export let EMAIL_SECURE: boolean = false;
+export let EMAIL_AUTH_USER: string = process.env.EMAIL_AUTH_USER;
+export let EMAIL_AUTH_PASSWORD: string = process.env.EMAIL_AUTH_PASSWORD;
+export let EMAIL_FROM: string = process.env.EMAIL_FROM;
