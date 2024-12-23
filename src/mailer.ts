@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import nodemailer, { TransportOptions } from "nodemailer";
 import {
 	EMAIL_AUTH_PASSWORD,
 	EMAIL_AUTH_USER,
@@ -8,7 +8,7 @@ import {
 	EMAIL_SECURE,
 } from "./config.ts";
 
-export const mail = nodemailer.createTransport({
+export let mail = nodemailer.createTransport({
 	host: EMAIL_HOST,
 	port: EMAIL_PORT,
 	secure: EMAIL_SECURE, // use TLS
@@ -20,4 +20,27 @@ export const mail = nodemailer.createTransport({
 		// do not fail on invalid certs
 		rejectUnauthorized: false,
 	},
-});
+} as TransportOptions);
+
+export function sendMail(
+	to: string,
+	subject: string,
+	text: string,
+	html: string,
+): void {
+	let message = {
+		from: EMAIL_FROM,
+		to: to,
+		subject: subject,
+		text: text,
+		html: html,
+	};
+	mail.sendMail(message, (rej, res) => {
+		//TODO: change to using debug
+		if (rej) {
+			console.log(rej.message);
+		} else {
+			console.log(res);
+		}
+	});
+}
