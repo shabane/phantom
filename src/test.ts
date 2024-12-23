@@ -1,5 +1,5 @@
 import { nameIt } from "./config";
-import { mail, sendMail } from "./mailer.ts";
+import { mail, sendMail } from "./mailer";
 console.log(nameIt());
 console.log("------------------");
 

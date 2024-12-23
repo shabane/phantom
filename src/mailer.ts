@@ -6,7 +6,7 @@ import {
 	EMAIL_HOST,
 	EMAIL_PORT,
 	EMAIL_SECURE,
-} from "./config.ts";
+} from "./config";
 
 export let mail = nodemailer.createTransport({
 	host: EMAIL_HOST,

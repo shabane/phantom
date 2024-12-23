@@ -37,3 +37,8 @@ export let EMAIL_SECURE = process.env.EMAIL_SECURE;
 export let EMAIL_AUTH_USER = process.env.EMAIL_AUTH_USER;
 export let EMAIL_AUTH_PASSWORD = process.env.EMAIL_AUTH_PASSWORD;
 export let EMAIL_FROM = process.env.EMAIL_FROM;
+export let EMAIL_THEME = "<h3>Hi, you have new files wating for download.<h3>";
+export let EMAIL_SUBJECT = "Hi, you have new files wating for download.";
+export let EMAIL_LINK_THEME = "<a src='%LINK%'> %TXT% </a>";
+
+export let SITE_DOMAIL = process.env.SITE_DOMAIN;
