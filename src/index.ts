@@ -23,11 +23,11 @@ app.get("/api/file/", (_: Request, res: Response) => {
 });
 
 const storage = multer.diskStorage({
-	destination: function (_: Request, file: any, cb: any) {
+	destination: function(_: Request, file: any, cb: any) {
 		cb(null, UPLOAD_DIR);
 	},
 
-	filename: function (_: Request, file: any, cb: any) {
+	filename: function(_: Request, file: any, cb: any) {
 		cb(null, nameIt() + "-" + file.originalname);
 	},
 });
@@ -35,17 +35,25 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post(
-	"/api/file/",
+	"/api/file",
 	upload.single("file"),
 	(req: Request, res: Response) => {
 		if (!req.file) {
 			res.status(400).send("please send a file");
 		}
+
+		if (!req.query.mail) {
+			res.status(400).send("please provide an email");
+		}
+
+		let text: string = EMAIL_THEME + "</br>" + SITE_DOMAIL +
+			"/" +
+			req.file?.path;
 		sendMail(
-			req.params.to,
+			req.query.mail as string,
 			EMAIL_SUBJECT,
-			EMAIL_THEME + req.file?.path,
-			EMAIL_THEME + req.file?.path,
+			text + req.file?.path,
+			text + req.file?.path,
 		);
 		res.send("your file will send");
 	},
