@@ -14,8 +14,10 @@ identifications, then this app make you a phantom 👻
 there is two way
 
 1. use the web app. open up the [web app](phantom.wiregeek.ir) with your browser.
+
 2. use curl! `curl -L -F file='@path/2/file' phantom.wiregeek.ir/?mail=someOneMail@mail.com`
-2.1 if you are teminal lover :) then you can use it like this to send a bunch of files `tar -cf - /path/2/files | curl -L -F file='@-' phantom.wiregeek.ir`
+
+2.1. if you are teminal lover :) then you can use it like this to send a bunch of files `tar -cf - /path/2/files | curl -L -F file='@-' phantom.wiregeek.ir`
 
 ### how to self host?
 
