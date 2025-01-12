@@ -14,6 +14,7 @@ identifications, then this app make you a phantom 👻
 there is two way
 
 1. use the web app. open up the [web app](phantom.wiregeek.ir) with your browser.
+> sorry but there is not any webapp writen, not have time to create it!. use terminal instead <3
 
 2. use curl! `curl -L -F file='@path/2/file' phantom.wiregeek.ir/?mail=someOneMail@mail.com`
 
